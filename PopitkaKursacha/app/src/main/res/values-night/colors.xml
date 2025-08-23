@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary colors -->
+    <color name="primary">#D0BCFF</color>
+    <color name="primary_variant">#B69DF8</color>
+    <color name="on_primary">#381E72</color>
+    
+    <!-- Secondary colors -->
+    <color name="secondary">#CCC2DC</color>
+    <color name="on_secondary">#332D41</color>
+    
+    <!-- Tertiary colors -->
+    <color name="tertiary">#EFB8C8</color>
+    <color name="on_tertiary">#492532</color>
+    
+    <!-- Background colors -->
+    <color name="background">#1C1B1F</color>
+    <color name="on_background">#E6E1E5</color>
+    <color name="surface">#1C1B1F</color>
+    <color name="on_surface">#E6E1E5</color>
+    <color name="surface_variant">#49454F</color>
+    <color name="on_surface_variant">#CAC4D0</color>
+    
+    <!-- Text colors -->
+    <color name="text_primary">#E6E1E5</color>
+    <color name="text_secondary">#CAC4D0</color>
+    <color name="text_tertiary">#938F99</color>
+    
+    <!-- Card and component colors -->
+    <color name="card_background">#2B2930</color>
+    <color name="card_surface">#2B2930</color>
+    <color name="button_background">#D0BCFF</color>
+    <color name="button_text">#381E72</color>
+    <color name="button_secondary">#49454F</color>
+    <color name="button_secondary_text">#CAC4D0</color>
+    
+    <!-- Status colors -->
+    <color name="error">#FFB4AB</color>
+    <color name="on_error">#690005</color>
+    <color name="success">#4CAF50</color>
+    <color name="warning">#FFB74D</color>
+    
+    <!-- Divider and outline -->
+    <color name="outline">#938F99</color>
+    <color name="outline_variant">#49454F</color>
+    
+    <!-- Elevation overlays -->
+    <color name="elevation_1">#1F1F1F</color>
+    <color name="elevation_2">#2A2A2A</color>
+    <color name="elevation_3">#353535</color>
+</resources>

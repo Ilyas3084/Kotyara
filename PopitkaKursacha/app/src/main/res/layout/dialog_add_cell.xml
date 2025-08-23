@@ -1,28 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="24dp"
+    android:background="@color/surface">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="QR-код ячейки:"
-        android:layout_marginBottom="4dp"/>
+        android:text="@string/add_cell_dialog_title"
+        android:textAppearance="@style/TextAppearance.App.TitleLarge"
+        android:textAlignment="center"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cell_qr_code_label"
+        android:textAppearance="@style/TextAppearance.App.TitleMedium"
+        android:textColor="@color/text_secondary"
+        android:layout_marginBottom="8dp"/>
 
     <TextView
         android:id="@+id/cellQrCodeText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:textStyle="bold"/>
+        android:layout_marginBottom="24dp"
+        android:textAppearance="@style/TextAppearance.App.BodyLarge"
+        android:textColor="@color/text_primary"
+        android:fontFamily="monospace"
+        android:background="@drawable/qr_code_background"
+        android:padding="16dp"
+        android:textAlignment="center"/>
 
-    <EditText
-        android:id="@+id/cellNameInput"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Название ячейки"
-        android:inputType="textCapWords"/>
+                                android:hint="@string/cell_name_hint"
+        app:startIconDrawable="@android:drawable/ic_menu_edit"
+                                app:startIconTint="@color/primary"
+                        app:boxBackgroundColor="@color/surface_variant"
+                        app:boxStrokeColor="@color/primary"
+                        app:boxStrokeWidth="2dp"
+                        app:hintTextColor="@color/text_secondary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cellNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:textAppearance="@style/TextAppearance.App.BodyLarge" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

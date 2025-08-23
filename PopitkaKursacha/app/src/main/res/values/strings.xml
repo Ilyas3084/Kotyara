@@ -1,8 +1,84 @@
 <resources>
-    <string name="app_name">SmartShelf</string>
+    <string name="app_name">Kotyara Scanner</string>
+    
+    <!-- Main Activity -->
+    <string name="welcome_title">Добро пожаловать!</string>
+    <string name="welcome_subtitle">Отсканируйте штрих-код или QR-код для получения информации о товаре</string>
+    <string name="scan_button">Сканировать QR-код или штрих-код</string>
+    <string name="copy_button">Копировать</string>
+    <string name="clear_button">Очистить</string>
+    <string name="add_product_button">Добавить товар</string>
+    <string name="view_products_button">Просмотр товаров</string>
+    <string name="view_cells_button">Просмотр ячеек</string>
+    <string name="export_db_button">Экспорт базы данных</string>
+    <string name="import_db_button">Импорт базы данных</string>
+    <string name="settings_button">Настройки</string>
+    
+    <!-- Navigation -->
+    <string name="navigation_title">Навигация</string>
+    <string name="db_management_title">Управление базой данных</string>
+    
+    <!-- Product Information -->
+    <string name="product_info_title">Информация о товаре</string>
+    <string name="product_name_label">Название: </string>
+    <string name="product_description_label">Описание: </string>
+    <string name="product_price_label">Цена: </string>
+    <string name="product_cell_label">Ячейка: </string>
+    
+    <!-- Lists -->
+    <string name="products_list_title">Список товаров</string>
+    <string name="cells_list_title">Список ячеек</string>
+    <string name="search_products_hint">Поиск по ID (штрих-коду)</string>
+    <string name="search_cells_hint">Поиск по QR-коду или имени</string>
+    <string name="search_title">Поиск</string>
+    
+    <!-- Product Item -->
+    <string name="product_id_label">ID: </string>
+    <string name="edit_button">Редактировать</string>
+    
+    <!-- Cell Item -->
+    <string name="cell_name_label">Название ячейки: </string>
+    <string name="cell_qr_label">QR-код: </string>
+    
+    <!-- Edit Product -->
+    <string name="edit_product_title">Редактирование товара</string>
+    <string name="product_name_hint">Название товара</string>
+    <string name="product_description_hint">Описание</string>
+    <string name="product_price_hint">Цена</string>
+    <string name="save_changes_button">Сохранить изменения</string>
+    <string name="scan_qr_cell_button">Сканировать QR ячейки</string>
+    <string name="delete_product_button">Удалить товар</string>
+    
+    <!-- Product Details -->
+    <string name="product_details_title">Информация о товаре</string>
+    <string name="product_barcode_label">ID товара: </string>
+    <string name="back_to_list_button">Назад к списку</string>
+    
+    <!-- Cell Details -->
+    <string name="cell_details_title">Информация о ячейке</string>
+    <string name="cell_description_label">Описание: </string>
+    <string name="products_in_cell_title">Товары в ячейке</string>
+    <string name="products_list_label">Список товаров:</string>
+    
+    <!-- Settings -->
+    <string name="settings_title">Настройки</string>
+    
+    <!-- Dialogs -->
+    <string name="add_product_dialog_title">Добавить новый товар</string>
+    <string name="add_cell_dialog_title">Добавить новую ячейку</string>
+    <string name="cell_qr_code_label">QR-код ячейки:</string>
+    <string name="cell_name_hint">Название ячейки</string>
+    
+    <!-- Messages -->
     <string name="copy_success">Текст скопирован в буфер обмена</string>
     <string name="export_success">База данных экспортирована</string>
     <string name="import_success">База данных импортирована</string>
     <string name="export_error">Ошибка экспорта: %1$s</string>
     <string name="import_error">Ошибка импорта: %1$s</string>
+    
+    <!-- Accessibility -->
+    <string name="scan_camera_description">Кнопка сканирования камерой</string>
+    <string name="add_item_description">Кнопка добавления элемента</string>
+    <string name="edit_item_description">Кнопка редактирования элемента</string>
+    <string name="delete_item_description">Кнопка удаления элемента</string>
 </resources>

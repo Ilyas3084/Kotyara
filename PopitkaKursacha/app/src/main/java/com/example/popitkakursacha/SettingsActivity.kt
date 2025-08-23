@@ -10,18 +10,32 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
+import com.google.android.material.appbar.MaterialToolbar
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_activity)
 
+        // Настройка toolbar с кнопкой "Назад"
+        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        
+        // Обработчик нажатия на кнопку "Назад"
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.settings_container, SettingsFragment())
             .commit()
+    }
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {
@@ -52,7 +66,7 @@ class SettingsActivity : AppCompatActivity() {
         private fun showAboutDialog() {
             AlertDialog.Builder(requireContext())
                 .setTitle("О приложении")
-                .setMessage("SmartShelf v1.0\n\nУправление товарами и ячейками с помощью QR-кодов.\n\n© 2025")
+                .setMessage("Kotyara Scanner v1.0\n\nУправление товарами и ячейками с помощью QR-кодов.\n\n© 2025")
                 .setPositiveButton("OK", null)
                 .show()
         }
