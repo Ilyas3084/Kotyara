@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Категория основных настроек -->
+    <PreferenceCategory
+        android:title="Основные настройки"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            android:key="sound_enabled"
+            android:title="Звуковое оповещение"
+            android:summary="Включить звук при сканировании"
+            android:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
+            android:key="vibration_enabled"
+            android:title="Вибрация"
+            android:summary="Виброотклик при сканировании"
+            android:defaultValue="true"/>
+
+        <ListPreference
+            android:key="camera_selector"
+            android:title="Выбор камеры"
+            android:summary="Выберите камеру для сканирования"
+            android:entries="@array/camera_options"
+            android:entryValues="@array/camera_values"
+            android:defaultValue="back"/>
+    </PreferenceCategory>
+
+    <!-- Категория дополнительных настроек -->
+    <PreferenceCategory
+        android:title="Дополнительные настройки"
+        app:iconSpaceReserved="false">
+
+        <EditTextPreference
+            android:key="scan_timeout"
+            android:title="Таймаут сканирования"
+            android:summary="Время в секундах до автоматического прекращения сканирования"
+            android:inputType="number"
+            android:defaultValue="10"/>
+
+        <Preference
+            android:title="Сбросить настройки"
+            android:summary="Вернуть все настройки по умолчанию">
+            <intent
+                android:action="android.intent.action.APPLICATION_PREFERENCES"
+                android:targetPackage="com.example.popitkakursacha"
+                android:targetClass="com.example.popitkakursacha.SettingsActivity"/>
+        </Preference>
+    </PreferenceCategory>
+
+    <!-- Категория информации -->
+    <PreferenceCategory
+        android:title="Информация"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            android:title="Версия приложения"
+            android:summary="1.0.0"
+            android:selectable="false"/>
+
+        <Preference
+            android:title="О приложении"
+            android:summary="Показать информацию о разработчике">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://example.com/about"/>
+        </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

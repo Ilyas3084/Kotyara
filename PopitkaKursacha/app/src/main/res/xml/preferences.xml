@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="Основные настройки">
+        <SwitchPreferenceCompat
+            android:key="sound_enabled"
+            android:title="Звук при сканировании"
+            android:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
+            android:key="vibration_enabled"
+            android:title="Вибрация"
+            android:defaultValue="true"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

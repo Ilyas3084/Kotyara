@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/on_secondary</item>
+        <item name="colorError">@color/error</item>
+
+        <item name="android:background">@color/background</item>
+        <item name="backgroundColor">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+
+        <item name="android:textColorPrimary">@color/on_surface</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+
+        <item name="materialButtonStyle">@style/AppButtonStyle</item>
+        <item name="cardViewStyle">@style/AppCardViewStyle</item>
+        <item name="textInputStyle">@style/AppTextInputStyle</item>
+
+        <item name="colorAccent">@color/secondary</item>
+    </style>
+
+    <style name="AppButtonStyle" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/button_background</item>
+        <item name="android:textColor">@color/button_text</item>
+        <item name="rippleColor">@color/secondary</item>
+        <item name="android:padding">12dp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <style name="AppCardViewStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardCornerRadius">8dp</item>
+    </style>
+
+    <style name="AppTextInputStyle" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/surface</item>
+        <item name="android:textColor">@color/on_surface</item>
+        <item name="hintTextColor">@color/text_secondary</item>
+        <item name="boxStrokeColor">@color/secondary</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+    </style>
+
+    <style name="ScannerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/background</item>
+        <item name="android:textColorPrimary">@color/on_surface</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="colorAccent">@color/secondary</item>
+    </style>
+
+    <style name="AppDialogTheme" parent="Theme.Material3.Light.Dialog">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="android:textColorPrimary">@color/on_surface</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="buttonBarPositiveButtonStyle">@style/AppDialogButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/AppDialogButtonStyle</item>
+    </style>
+
+    <style name="AppDialogButtonStyle" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/button_text</item>
+        <item name="backgroundTint">@color/button_background</item>
+        <item name="rippleColor">@color/secondary</item>
+    </style>
+</resources>

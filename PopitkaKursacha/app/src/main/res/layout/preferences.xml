@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreferenceCompat
+        android:key="pref_enable_sound"
+        android:title="Звук при сканировании"
+        android:summary="Включить звук при успешном сканировании"
+        android:defaultValue="true" />
+
+    <SwitchPreferenceCompat
+        android:key="pref_enable_vibration"
+        android:title="Вибрация при сканировании"
+        android:summary="Включить вибрацию при сканировании"
+        android:defaultValue="true" />
+
+    <ListPreference
+        android:key="pref_camera_selection"
+        android:title="Камера"
+        android:summary="%s"
+        android:entries="@array/camera_options"
+        android:entryValues="@array/camera_values"
+        android:defaultValue="auto" />
+
+    <EditTextPreference
+        android:key="pref_backup_location"
+        android:title="Путь для резервной копии"
+        android:summary="Место сохранения бэкапов (по умолчанию: /Download)"
+        android:defaultValue="/Download"
+        android:dialogTitle="Путь для резервной копии" />
+
+    <Preference
+        android:key="pref_about"
+        android:title="О приложении"
+        android:summary="SmartShelf v1.0" />
+
+</PreferenceScreen>

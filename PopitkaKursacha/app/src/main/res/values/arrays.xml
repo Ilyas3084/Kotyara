@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="camera_options">
+        <item>Задняя камера</item>
+        <item>Передняя камера</item>
+        <item>Автовыбор</item>
+    </string-array>
+
+    <string-array name="camera_values">
+        <item>back</item>
+        <item>front</item>
+        <item>auto</item>
+    </string-array>
+</resources>

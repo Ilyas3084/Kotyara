@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#4CAF50</color>
+    <color name="primary_variant">#388E3C</color>
+    <color name="secondary">#4CAF50</color>
+
+    <color name="background">#FFFFFF</color>
+    <color name="surface">#FFFFFF</color>
+
+    <color name="on_primary">#000000</color>
+    <color name="on_background">#000000</color>
+    <color name="on_surface">#000000</color>
+    <color name="on_secondary">#000000</color>
+    <color name="text_secondary">#000000</color>
+
+    <color name="error">#D32F2F</color>
+
+    <color name="card_background">#F5F5F5</color>
+    <color name="button_background">#4CAF50</color>
+    <color name="button_text">#000000</color>
+</resources>

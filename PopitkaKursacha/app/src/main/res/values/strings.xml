@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SmartShelf</string>
+    <string name="copy_success">Текст скопирован в буфер обмена</string>
+    <string name="export_success">База данных экспортирована</string>
+    <string name="import_success">База данных импортирована</string>
+    <string name="export_error">Ошибка экспорта: %1$s</string>
+    <string name="import_error">Ошибка импорта: %1$s</string>
+</resources>
