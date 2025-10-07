@@ -21,16 +21,12 @@ class ProductDetailsActivity : AppCompatActivity() {
 
         product?.let {
             findViewById<TextView>(R.id.productName).text = it.name
-            findViewById<TextView>(R.id.productBarcode).text = "Штрих-код: ${it.barcode}"
+            findViewById<TextView>(R.id.productBarcode).text = it.barcode
             findViewById<TextView>(R.id.productDescription).text = it.description
-            findViewById<TextView>(R.id.productPrice).text = "Цена: ${it.price} руб."
+            findViewById<TextView>(R.id.productPrice).text = "${it.price} руб."
 
             cell?.let { c ->
-                findViewById<TextView>(R.id.productCell).text = """
-                    Ячейка: ${c.name}
-                    Описание: ${c.description}
-                    Код: ${c.qrCode}
-                """.trimIndent()
+                findViewById<TextView>(R.id.productCell).text = c.name
                 findViewById<TextView>(R.id.productCell).visibility = View.VISIBLE
             } ?: run {
                 findViewById<TextView>(R.id.productCell).visibility = View.GONE

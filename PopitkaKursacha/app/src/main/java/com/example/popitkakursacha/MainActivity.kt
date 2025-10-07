@@ -354,8 +354,8 @@ class MainActivity : AppCompatActivity() {
         withContext(Dispatchers.Main) {
             findViewById<TextView>(R.id.productName).text = product.name
             findViewById<TextView>(R.id.productDescription).text = product.description
-            findViewById<TextView>(R.id.productPrice).text = "Цена: ${product.price} руб."
-            findViewById<TextView>(R.id.productCell).text = "Ячейка: $cellName"
+            findViewById<TextView>(R.id.productPrice).text = "${product.price} руб."
+            findViewById<TextView>(R.id.productCell).text = cellName
         }
     }
 

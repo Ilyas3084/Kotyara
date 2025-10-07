@@ -136,9 +136,9 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:textAppearance="@style/TextAppearance.App.TitleLarge"
+                                android:textAppearance="@style/TextAppearance.App.BodyLarge"
                                 android:textColor="@color/text_primary"
-                                android:textStyle="bold" />
+                                android:textStyle="normal" />
 
                         </LinearLayout>
 

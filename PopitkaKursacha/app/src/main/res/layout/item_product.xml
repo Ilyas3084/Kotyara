@@ -49,15 +49,6 @@
 
         </LinearLayout>
 
-        <!-- Product Code Section -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/product_id_label"
-            android:textAppearance="@style/TextAppearance.App.TitleMedium"
-            android:textColor="@color/text_secondary"
-            android:layout_marginBottom="4dp" />
-
         <TextView
             android:id="@+id/productCode"
             android:layout_width="match_parent"
@@ -82,16 +73,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.App.BodyMedium"
             android:textColor="@color/text_secondary"
+            android:textStyle="normal"
             android:layout_marginBottom="16dp" />
-
-        <!-- Product Price Section -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/product_price_label"
-            android:textAppearance="@style/TextAppearance.App.TitleMedium"
-            android:textColor="@color/text_secondary"
-            android:layout_marginBottom="4dp" />
 
         <TextView
             android:id="@+id/productPrice"
@@ -99,17 +82,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.App.BodyLarge"
             android:textColor="@color/text_primary"
-            android:textStyle="bold"
+            android:textStyle="normal"
             android:layout_marginBottom="16dp" />
-
-        <!-- Product Cell Section -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/product_cell_label"
-            android:textAppearance="@style/TextAppearance.App.TitleMedium"
-            android:textColor="@color/text_secondary"
-            android:layout_marginBottom="4dp" />
 
         <TextView
             android:id="@+id/productCell"
