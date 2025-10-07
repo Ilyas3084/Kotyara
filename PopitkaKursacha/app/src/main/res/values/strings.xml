@@ -39,6 +39,7 @@
     <!-- Cell Item -->
     <string name="cell_name_label">Название ячейки: </string>
     <string name="cell_qr_label">QR-код: </string>
+    <string name="delete_cell">Удалить ячейку</string>
     
     <!-- Edit Product -->
     <string name="edit_product_title">Редактирование товара</string>
@@ -75,6 +76,12 @@
     <string name="import_success">База данных импортирована</string>
     <string name="export_error">Ошибка экспорта: %1$s</string>
     <string name="import_error">Ошибка импорта: %1$s</string>
+    <string name="delete_cell_confirm_title">Удаление ячейки</string>
+    <string name="delete_cell_confirm_message">Вы уверены, что хотите удалить ячейку \"%1$s\"?</string>
+    <string name="delete_button">Удалить</string>
+    <string name="cancel_button">Отмена</string>
+    <string name="delete_success">Ячейка удалена</string>
+    <string name="delete_error">Ошибка удаления: %1$s</string>
     
     <!-- Accessibility -->
     <string name="scan_camera_description">Кнопка сканирования камерой</string>

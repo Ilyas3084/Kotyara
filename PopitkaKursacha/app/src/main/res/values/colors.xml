@@ -36,6 +36,7 @@
     
     <!-- Status colors -->
     <color name="error">#BA1A1A</color>
+    <color name="error_color">#BA1A1A</color>
     <color name="on_error">#FFFFFF</color>
     <color name="success">#0F9D58</color>
     <color name="warning">#F57C00</color>

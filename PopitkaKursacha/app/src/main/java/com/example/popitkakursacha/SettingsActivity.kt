@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
@@ -58,6 +59,17 @@ class SettingsActivity : AppCompatActivity() {
                         Toast.makeText(requireContext(), "Требуется разрешение на вибрацию", Toast.LENGTH_SHORT).show()
                         return@setOnPreferenceChangeListener false
                     }
+                }
+                true
+            }
+
+            // Обработка изменения темы
+            findPreference<Preference>("pref_theme")?.setOnPreferenceChangeListener { _, newValue ->
+                val themeValue = newValue as String
+                when (themeValue) {
+                    "light" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    "dark" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    "system" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                 }
                 true
             }

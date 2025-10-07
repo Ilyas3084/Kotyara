@@ -4,14 +4,26 @@
 
     <PreferenceCategory android:title="Основные настройки">
         <SwitchPreferenceCompat
-            android:key="sound_enabled"
+            android:key="pref_enable_sound"
             android:title="Звук при сканировании"
+            android:summary="Включить звуковой сигнал при успешном сканировании"
             android:defaultValue="true"/>
 
         <SwitchPreferenceCompat
-            android:key="vibration_enabled"
-            android:title="Вибрация"
+            android:key="pref_enable_vibration"
+            android:title="Вибрация при сканировании"
+            android:summary="Включить вибрацию при успешном сканировании"
             android:defaultValue="true"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Внешний вид">
+        <ListPreference
+            android:key="pref_theme"
+            android:title="Тема приложения"
+            android:summary="Выберите тему оформления"
+            android:entries="@array/theme_entries"
+            android:entryValues="@array/theme_values"
+            android:defaultValue="system"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -2,9 +2,12 @@ package com.example.popitkakursacha
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Vibrator
+import android.os.VibrationEffect
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 import com.google.android.material.textfield.TextInputEditText
 import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.coroutines.launch
@@ -15,6 +18,7 @@ import com.google.android.material.appbar.MaterialToolbar
 class EditProductActivity : AppCompatActivity() {
     private lateinit var productDao: ProductDao
     private lateinit var product: Product
+    private lateinit var vibrator: Vibrator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +30,7 @@ class EditProductActivity : AppCompatActivity() {
 
         productDao = AppDatabase.getDatabase(this).productDao()
         product = intent.getSerializableExtra("product") as Product
+        vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
 
         val nameInput = findViewById<TextInputEditText>(R.id.productNameInput)
         val descInput = findViewById<TextInputEditText>(R.id.productDescInput)
@@ -123,6 +128,7 @@ class EditProductActivity : AppCompatActivity() {
     }
 
     private fun processScannedQrCode(qrCode: String) {
+        triggerVibration() // Добавляем вибрацию при успешном сканировании
         val updatedProduct = product.copy(cellQrCode = qrCode)
 
         lifecycleScope.launch(Dispatchers.IO) {
@@ -134,6 +140,20 @@ class EditProductActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
                 product = updatedProduct
+            }
+        }
+    }
+
+    private fun triggerVibration() {
+        val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this)
+        val enableVibration = sharedPrefs.getBoolean("pref_enable_vibration", true)
+        if (enableVibration && vibrator.hasVibrator()) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                val vibrationEffect = VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE)
+                vibrator.vibrate(vibrationEffect)
+            } else {
+                @Suppress("DEPRECATION")
+                vibrator.vibrate(200)
             }
         }
     }

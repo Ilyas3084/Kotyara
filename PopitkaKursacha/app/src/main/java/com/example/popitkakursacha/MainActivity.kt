@@ -6,12 +6,15 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.Vibrator
+import android.os.VibrationEffect
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -34,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     private var lastScannedBarcode: String? = null
     private var lastScannedQrCode: String? = null
     private lateinit var sharedPrefs: SharedPreferences
+    private lateinit var vibrator: Vibrator
 
     // Лаунчеры для файловых операций
     private val importFileLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
@@ -77,6 +81,12 @@ class MainActivity : AppCompatActivity() {
 
         // Инициализация SharedPreferences для настроек
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this)
+        
+        // Инициализация вибратора
+        vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
+
+        // Инициализация темы
+        initializeTheme()
 
         initButtons()
     }
@@ -164,6 +174,28 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun initializeTheme() {
+        val themePreference = sharedPrefs.getString("pref_theme", "system")
+        when (themePreference) {
+            "light" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            "dark" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            "system" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        }
+    }
+
+    private fun triggerVibration() {
+        val enableVibration = sharedPrefs.getBoolean("pref_enable_vibration", true)
+        if (enableVibration && vibrator.hasVibrator()) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                val vibrationEffect = VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE)
+                vibrator.vibrate(vibrationEffect)
+            } else {
+                @Suppress("DEPRECATION")
+                vibrator.vibrate(200)
+            }
+        }
+    }
+
     private fun processScannedCode(code: String) {
         lifecycleScope.launch(Dispatchers.IO) {
             if (code.matches(Regex("\\d+"))) {
@@ -177,6 +209,7 @@ class MainActivity : AppCompatActivity() {
     private suspend fun processBarcode(barcode: String) {
         val product = productDao.getProductByCode(barcode)
         withContext(Dispatchers.Main) {
+            triggerVibration() // Добавляем вибрацию при успешном сканировании
             lastScannedBarcode = barcode
             findViewById<TextView>(R.id.resultTextView).text = barcode
             findViewById<Button>(R.id.copyButton).visibility = View.VISIBLE
@@ -198,6 +231,7 @@ class MainActivity : AppCompatActivity() {
         lastScannedQrCode = qrCode
         val cell = cellDao.getCell(qrCode)
         withContext(Dispatchers.Main) {
+            triggerVibration() // Добавляем вибрацию при успешном сканировании
             findViewById<TextView>(R.id.resultTextView).text = qrCode
             findViewById<Button>(R.id.copyButton).visibility = View.VISIBLE
             findViewById<Button>(R.id.clearButton).visibility = View.VISIBLE

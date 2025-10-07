@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
 import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.appbar.MaterialToolbar
+import androidx.appcompat.app.AlertDialog
 
 class CellListActivity : AppCompatActivity() {
     private lateinit var adapter: CellsAdapter
@@ -40,9 +41,10 @@ class CellListActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO) {
             val cells = AppDatabase.getDatabase(this@CellListActivity).cellDao().getAllCells()
             launch(Dispatchers.Main) {
-                adapter = CellsAdapter(cells) { cell ->
-                    showCellDetails(cell)
-                }
+                adapter = CellsAdapter(cells, 
+                    onCellClick = { cell -> showCellDetails(cell) },
+                    onCellDelete = { cell -> showDeleteConfirmation(cell) }
+                )
                 recyclerView.adapter = adapter
             }
         }
@@ -67,5 +69,42 @@ class CellListActivity : AppCompatActivity() {
             putExtra("cell", cell)
         }
         startActivity(intent)
+    }
+
+    private fun showDeleteConfirmation(cell: Cell) {
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.delete_cell_confirm_title))
+            .setMessage(getString(R.string.delete_cell_confirm_message, cell.name))
+            .setPositiveButton(getString(R.string.delete_button)) { _, _ ->
+                deleteCell(cell)
+            }
+            .setNegativeButton(getString(R.string.cancel_button), null)
+            .show()
+    }
+
+    private fun deleteCell(cell: Cell) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                AppDatabase.getDatabase(this@CellListActivity).cellDao().delete(cell)
+                launch(Dispatchers.Main) {
+                    // Обновляем список ячеек после удаления
+                    loadCells()
+                    // Показываем сообщение об успехе
+                    android.widget.Toast.makeText(
+                        this@CellListActivity,
+                        getString(R.string.delete_success),
+                        android.widget.Toast.LENGTH_SHORT
+                    ).show()
+                }
+            } catch (e: Exception) {
+                launch(Dispatchers.Main) {
+                    android.widget.Toast.makeText(
+                        this@CellListActivity,
+                        getString(R.string.delete_error, e.message),
+                        android.widget.Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
     }
 }

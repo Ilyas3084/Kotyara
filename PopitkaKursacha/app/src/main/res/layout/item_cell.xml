@@ -9,41 +9,61 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="16dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true">
 
-        <!-- Cell Name Section -->
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Cell Content Container -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/cell_name_label"
-            android:textAppearance="@style/TextAppearance.App.TitleMedium"
-            android:textColor="@color/text_secondary"
-            android:layout_marginBottom="4dp" />
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/cellName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.App.TitleLarge"
-            android:textColor="@color/text_primary"
-            android:textStyle="bold"
-            android:layout_marginBottom="5dp" />
+            <!-- Cell Name Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cell_name_label"
+                android:textAppearance="@style/TextAppearance.App.TitleMedium"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="4dp" />
 
-        <!-- Cell QR Code Section -->
+            <TextView
+                android:id="@+id/cellName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.App.TitleLarge"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp" />
 
-        <TextView
-            android:id="@+id/cellQrCode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.App.BodyLarge"
-            android:textColor="@color/text_primary"
-            android:fontFamily="monospace"
-            android:breakStrategy="simple"
-            android:hyphenationFrequency="none" />
+            <!-- Cell QR Code Section -->
+            <TextView
+                android:id="@+id/cellQrCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.App.BodyLarge"
+                android:textColor="@color/text_primary"
+                android:fontFamily="monospace"
+                android:breakStrategy="simple"
+                android:hyphenationFrequency="none" />
+
+        </LinearLayout>
+
+        <!-- Delete Button -->
+        <ImageButton
+            android:id="@+id/deleteButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_delete"
+            android:contentDescription="@string/delete_cell"
+            android:tint="@color/error_color" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
