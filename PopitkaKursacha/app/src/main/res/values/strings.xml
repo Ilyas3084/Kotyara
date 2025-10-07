@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kotyara Scanner</string>
+    <string name="app_name">Smart Shelf</string>
     
     <!-- Main Activity -->
     <string name="welcome_title">Добро пожаловать!</string>
