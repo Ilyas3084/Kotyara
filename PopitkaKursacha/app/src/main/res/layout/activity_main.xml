@@ -18,10 +18,7 @@
             android:layout_height="?attr/actionBarSize"
             app:title="@string/app_name"
             app:titleTextColor="@color/on_primary"
-            app:titleTextAppearance="@style/TextAppearance.App.HeadlineMedium"
-            app:subtitle="Сканер штрих-кодов и QR-кодов"
-            app:subtitleTextColor="@color/on_primary"
-            app:subtitleTextAppearance="@style/TextAppearance.App.BodyMedium" />
+            app:titleTextAppearance="@style/TextAppearance.App.HeadlineMedium" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -37,50 +34,7 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-            <!-- Welcome Section -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                app:cardBackgroundColor="@color/card_surface"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="8dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="24dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/welcome_title"
-                        android:textAppearance="@style/TextAppearance.App.HeadlineMedium"
-                        android:textAlignment="center"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/welcome_subtitle"
-                        android:textAppearance="@style/TextAppearance.App.BodyMedium"
-                        android:textAlignment="center"
-                        android:layout_marginBottom="16dp" />
-
-                    <!-- Scan Result Display -->
-                    <TextView
-                        android:id="@+id/resultTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.App.TitleMedium"
-                        android:textAlignment="center"
-                        android:background="@drawable/result_background"
-                        android:padding="16dp"
-                        android:visibility="gone" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            
 
             <!-- Product Information Card -->
             <androidx.cardview.widget.CardView

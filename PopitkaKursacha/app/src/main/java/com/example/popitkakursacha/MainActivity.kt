@@ -123,9 +123,13 @@ class MainActivity : AppCompatActivity() {
 
         // Копирование результата
         findViewById<Button>(R.id.copyButton).setOnClickListener {
-            val resultText = findViewById<TextView>(R.id.resultTextView).text
+            val text = lastScannedBarcode ?: lastScannedQrCode
+            if (text.isNullOrEmpty()) {
+                Toast.makeText(this, "Нет данных для копирования", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             val clipboard = getSystemService(CLIPBOARD_SERVICE) as android.content.ClipboardManager
-            val clip = android.content.ClipData.newPlainText("QR Code", resultText)
+            val clip = android.content.ClipData.newPlainText("Scan Result", text)
             clipboard.setPrimaryClip(clip)
             Toast.makeText(this, getString(R.string.copy_success), Toast.LENGTH_SHORT).show()
         }
@@ -147,7 +151,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun clearScanResult() {
-        findViewById<TextView>(R.id.resultTextView).text = ""
         clearProductInfo()
         lastScannedBarcode = null
         lastScannedQrCode = null
@@ -211,7 +214,6 @@ class MainActivity : AppCompatActivity() {
         withContext(Dispatchers.Main) {
             triggerVibration() // Добавляем вибрацию при успешном сканировании
             lastScannedBarcode = barcode
-            findViewById<TextView>(R.id.resultTextView).text = barcode
             findViewById<Button>(R.id.copyButton).visibility = View.VISIBLE
             findViewById<Button>(R.id.clearButton).visibility = View.VISIBLE
             if (product == null) {
@@ -232,7 +234,7 @@ class MainActivity : AppCompatActivity() {
         val cell = cellDao.getCell(qrCode)
         withContext(Dispatchers.Main) {
             triggerVibration() // Добавляем вибрацию при успешном сканировании
-            findViewById<TextView>(R.id.resultTextView).text = qrCode
+            
             findViewById<Button>(R.id.copyButton).visibility = View.VISIBLE
             findViewById<Button>(R.id.clearButton).visibility = View.VISIBLE
             findViewById<androidx.cardview.widget.CardView>(R.id.productCard).visibility = View.GONE
