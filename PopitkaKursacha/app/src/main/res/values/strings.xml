@@ -28,7 +28,7 @@
     <!-- Lists -->
     <string name="products_list_title">Список товаров</string>
     <string name="cells_list_title">Список ячеек</string>
-    <string name="search_products_hint">Поиск по ID (штрих-коду)</string>
+    <string name="search_products_hint">Поиск по штрих-код или имени</string>
     <string name="search_cells_hint">Поиск по QR-коду или имени</string>
     <string name="search_title">Поиск</string>
     

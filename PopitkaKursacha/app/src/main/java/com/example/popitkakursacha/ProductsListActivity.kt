@@ -66,7 +66,8 @@ class ProductsListActivity : AppCompatActivity() {
             allProducts
         } else {
             allProducts.filter { product ->
-                product.barcode.contains(query, ignoreCase = true)
+                product.barcode.contains(query, ignoreCase = true) ||
+                product.name.contains(query, ignoreCase = true)
             }
         }
         adapter.updateProducts(filteredProducts)

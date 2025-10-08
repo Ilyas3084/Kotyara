@@ -158,6 +158,10 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.clearButton).visibility = View.GONE
         findViewById<Button>(R.id.addProductButton).visibility = View.GONE
         findViewById<androidx.cardview.widget.CardView>(R.id.productCard).visibility = View.GONE
+        findViewById<TextView>(R.id.scannedCodeText).apply {
+            text = ""
+            visibility = View.GONE
+        }
     }
 
     private fun startScan() {
@@ -216,6 +220,10 @@ class MainActivity : AppCompatActivity() {
             lastScannedBarcode = barcode
             findViewById<Button>(R.id.copyButton).visibility = View.VISIBLE
             findViewById<Button>(R.id.clearButton).visibility = View.VISIBLE
+            findViewById<TextView>(R.id.scannedCodeText).apply {
+                text = "Штрих-код: " + barcode
+                visibility = View.VISIBLE
+            }
             if (product == null) {
                 Toast.makeText(this@MainActivity, "Товар не найден", Toast.LENGTH_SHORT).show()
                 findViewById<Button>(R.id.addProductButton).visibility = View.VISIBLE
@@ -238,6 +246,10 @@ class MainActivity : AppCompatActivity() {
             findViewById<Button>(R.id.copyButton).visibility = View.VISIBLE
             findViewById<Button>(R.id.clearButton).visibility = View.VISIBLE
             findViewById<androidx.cardview.widget.CardView>(R.id.productCard).visibility = View.GONE
+            findViewById<TextView>(R.id.scannedCodeText).apply {
+                text = "QR-код: " + qrCode
+                visibility = View.VISIBLE
+            }
             clearProductInfo()
             if (cell == null) {
                 showAddCellDialog(qrCode)

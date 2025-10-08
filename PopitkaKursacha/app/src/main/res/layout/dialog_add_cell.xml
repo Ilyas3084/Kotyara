@@ -15,25 +15,7 @@
         android:textAlignment="center"
         android:layout_marginBottom="24dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cell_qr_code_label"
-        android:textAppearance="@style/TextAppearance.App.TitleMedium"
-        android:textColor="@color/text_secondary"
-        android:layout_marginBottom="8dp"/>
-
-    <TextView
-        android:id="@+id/cellQrCodeText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:textAppearance="@style/TextAppearance.App.BodyLarge"
-        android:textColor="@color/text_primary"
-        android:fontFamily="monospace"
-        android:background="@drawable/qr_code_background"
-        android:padding="16dp"
-        android:textAlignment="center"/>
+    
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
