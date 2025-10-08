@@ -30,13 +30,13 @@ class ProductsAdapter(
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = products[position]
         holder.name.text = product.name
-        holder.barcode.text = "Штрих-код: ${product.barcode}"
+        holder.barcode.text = product.barcode
         holder.description.text = product.description
-        holder.price.text = "Цена: ${product.price} руб."
+        holder.price.text = "${product.price} руб."
 
         product.cellQrCode?.let { qrCode ->
             cells[qrCode]?.let { cell ->
-                holder.cellName.text = "Ячейка: ${cell.name}"
+                holder.cellName.text = cell.name
                 holder.cellName.visibility = View.VISIBLE
             } ?: run {
                 holder.cellName.visibility = View.GONE
