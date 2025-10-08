@@ -6,13 +6,13 @@
         <SwitchPreferenceCompat
             android:key="pref_enable_sound"
             android:title="Звук при сканировании"
-            android:summary="Включить звуковой сигнал при успешном сканировании"
+            android:summary="Включить звук при успешном сканировании"
             android:defaultValue="true"/>
 
         <SwitchPreferenceCompat
             android:key="pref_enable_vibration"
             android:title="Вибрация при сканировании"
-            android:summary="Включить вибрацию при успешном сканировании"
+            android:summary="Включить вибрацию при сканировании"
             android:defaultValue="true"/>
     </PreferenceCategory>
 

@@ -18,12 +18,10 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_activity)
 
-        // Настройка toolbar с кнопкой "Назад"
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        
-        // Обработчик нажатия на кнопку "Назад"
+
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
@@ -46,13 +44,11 @@ class SettingsActivity : AppCompatActivity() {
             setPreferencesFromResource(R.xml.preferences, rootKey)
             sharedPrefs = PreferenceManager.getDefaultSharedPreferences(requireContext())
 
-            // Обработка "О приложении"
             findPreference<Preference>("pref_about")?.setOnPreferenceClickListener {
                 showAboutDialog()
                 true
             }
 
-            // Проверка вибрации
             findPreference<Preference>("pref_enable_vibration")?.setOnPreferenceChangeListener { _, newValue ->
                 if (newValue as Boolean) {
                     if (requireContext().checkSelfPermission(android.Manifest.permission.VIBRATE) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
@@ -63,7 +59,6 @@ class SettingsActivity : AppCompatActivity() {
                 true
             }
 
-            // Обработка изменения темы
             findPreference<Preference>("pref_theme")?.setOnPreferenceChangeListener { _, newValue ->
                 val themeValue = newValue as String
                 when (themeValue) {

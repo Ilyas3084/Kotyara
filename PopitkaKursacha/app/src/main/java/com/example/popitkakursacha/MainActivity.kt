@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var sharedPrefs: SharedPreferences
     private lateinit var vibrator: Vibrator
 
-    // Лаунчеры для файловых операций
     private val importFileLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
         uri?.let { importDatabase(it) }
     }
@@ -47,7 +46,6 @@ class MainActivity : AppCompatActivity() {
         uri?.let { exportDatabase(it) }
     }
 
-    // Лаунчер для сканирования
     private val scanLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val scanResult = IntentIntegrator.parseActivityResult(result.resultCode, result.data)
@@ -61,7 +59,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Лаунчер для разрешения камеры
     private val cameraPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
         if (isGranted) {
             startScan()
@@ -74,40 +71,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Инициализация базы данных
         val db = AppDatabase.getDatabase(this)
         productDao = db.productDao()
         cellDao = db.cellDao()
 
-        // Инициализация SharedPreferences для настроек
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this)
-        
-        // Инициализация вибратора
+
         vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
 
-        // Инициализация темы
         initializeTheme()
 
         initButtons()
     }
 
     private fun initButtons() {
-        // Кнопка настроек
         findViewById<Button>(R.id.settingsButton).setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
 
-        // Экспорт базы данных
         findViewById<Button>(R.id.exportDbButton).setOnClickListener {
             exportFileLauncher.launch("products_backup.json")
         }
 
-        // Импорт базы данных
         findViewById<Button>(R.id.importDbButton).setOnClickListener {
             importFileLauncher.launch("application/json")
         }
 
-        // Сканирование кода
         findViewById<Button>(R.id.scanButton).setOnClickListener {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                 startScan()
@@ -116,12 +105,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Просмотр списка товаров
         findViewById<Button>(R.id.viewProductsButton).setOnClickListener {
             startActivity(Intent(this, ProductsListActivity::class.java))
         }
 
-        // Копирование результата
         findViewById<Button>(R.id.copyButton).setOnClickListener {
             val text = lastScannedBarcode ?: lastScannedQrCode
             if (text.isNullOrEmpty()) {
@@ -134,17 +121,14 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, getString(R.string.copy_success), Toast.LENGTH_SHORT).show()
         }
 
-        // Очистка результата
         findViewById<Button>(R.id.clearButton).setOnClickListener {
             clearScanResult()
         }
 
-        // Добавление товара
         findViewById<Button>(R.id.addProductButton).setOnClickListener {
             showAddProductDialog(lastScannedBarcode)
         }
 
-        // Просмотр списка ячеек
         findViewById<Button>(R.id.viewCellsButton).setOnClickListener {
             startActivity(Intent(this, CellListActivity::class.java))
         }

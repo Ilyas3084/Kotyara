@@ -19,7 +19,6 @@
         android:clickable="true"
         android:focusable="true">
 
-        <!-- Header with name and edit button -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,7 +48,6 @@
 
         </LinearLayout>
 
-        <!-- Barcode Label -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,7 +65,6 @@
             android:fontFamily="monospace"
             android:layout_marginBottom="16dp" />
 
-        <!-- Product Description Section -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,7 +82,6 @@
             android:textStyle="normal"
             android:layout_marginBottom="16dp" />
 
-        <!-- Price Label -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,7 +99,6 @@
             android:textStyle="normal"
             android:layout_marginBottom="16dp" />
 
-        <!-- Cell Label -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

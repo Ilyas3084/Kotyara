@@ -15,14 +15,12 @@
         android:clickable="true"
         android:focusable="true">
 
-        <!-- Cell Content Container -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <!-- Cell Name Section -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,7 +38,6 @@
                 android:textStyle="bold"
                 android:layout_marginBottom="5dp" />
 
-            <!-- Cell QR Code Section -->
             <TextView
                 android:id="@+id/cellQrCode"
                 android:layout_width="match_parent"
@@ -53,7 +50,6 @@
 
         </LinearLayout>
 
-        <!-- Edit Button -->
         <ImageButton
             android:id="@+id/editButton"
             android:layout_width="48dp"
@@ -65,7 +61,6 @@
             android:contentDescription="@string/edit_button"
             android:tint="@color/primary" />
 
-        <!-- Delete Button -->
         <ImageButton
             android:id="@+id/deleteButton"
             android:layout_width="48dp"

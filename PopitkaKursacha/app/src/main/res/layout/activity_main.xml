@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
-    <!-- App Bar -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +21,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Main Content -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,7 +34,6 @@
 
             
 
-            <!-- Product Information Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/productCard"
                 android:layout_width="match_parent"
@@ -151,7 +148,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Action Buttons -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -170,7 +166,6 @@
                     app:iconGravity="textStart"
                     app:iconPadding="8dp" />
 
-                <!-- Secondary Actions -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -213,7 +208,6 @@
                     app:iconGravity="textStart"
                     app:iconPadding="8dp" />
 
-                <!-- Scanned code display -->
                 <TextView
                     android:id="@+id/scannedCodeText"
                     android:layout_width="match_parent"
@@ -226,7 +220,6 @@
 
             </LinearLayout>
 
-            <!-- Navigation Section -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -274,7 +267,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Database Management Section -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/dbCard"
                 android:layout_width="match_parent"
@@ -325,7 +317,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Settings Section -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
