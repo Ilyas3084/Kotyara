@@ -53,6 +53,18 @@
 
         </LinearLayout>
 
+        <!-- Edit Button -->
+        <ImageButton
+            android:id="@+id/editButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_edit"
+            android:contentDescription="@string/edit_button"
+            android:tint="@color/primary" />
+
         <!-- Delete Button -->
         <ImageButton
             android:id="@+id/deleteButton"

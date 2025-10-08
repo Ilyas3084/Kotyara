@@ -41,9 +41,11 @@ class CellListActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO) {
             val cells = AppDatabase.getDatabase(this@CellListActivity).cellDao().getAllCells()
             launch(Dispatchers.Main) {
-                adapter = CellsAdapter(cells, 
+                adapter = CellsAdapter(
+                    cells,
                     onCellClick = { cell -> showCellDetails(cell) },
-                    onCellDelete = { cell -> showDeleteConfirmation(cell) }
+                    onCellDelete = { cell -> showDeleteConfirmation(cell) },
+                    onCellEdit = { cell -> showEditCellDialog(cell) }
                 )
                 recyclerView.adapter = adapter
             }
@@ -106,5 +108,27 @@ class CellListActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun showEditCellDialog(cell: Cell) {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_add_cell, null)
+        val nameInput = dialogView.findViewById<android.widget.EditText>(R.id.cellNameInput)
+        nameInput.setText(cell.name)
+
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("Редактировать ячейку")
+            .setView(dialogView)
+            .setPositiveButton(getString(R.string.save_changes_button)) { _, _ ->
+                val newName = nameInput.text.toString().trim()
+                if (newName.isEmpty()) return@setPositiveButton
+                lifecycleScope.launch(Dispatchers.IO) {
+                    try {
+                        AppDatabase.getDatabase(this@CellListActivity).cellDao().insert(cell.copy(name = newName))
+                        launch(Dispatchers.Main) { loadCells() }
+                    } catch (_: Exception) { }
+                }
+            }
+            .setNegativeButton(getString(R.string.cancel_button), null)
+            .show()
     }
 }
